@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Photograbic</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="favorites">Favorites</string>
+    <string name="search_for_image">search for image</string>
+    <string name="image">Image</string>
+    <string name="missing_user_image">https://lh3.googleusercontent.com/proxy/xJecLjcsU1-aRB01MsKBmlJpXiWRBNoJTt6rM3YJQhSE0fMuVRvE905Rooi1Ejr51o-wQIPIBdODywK_b4VVdOBacPs5w1k</string>
+</resources>
