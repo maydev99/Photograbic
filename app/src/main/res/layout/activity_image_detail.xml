@@ -90,5 +90,16 @@
         app:srcCompat="@drawable/ic_baseline_share_24"
         android:contentDescription="@string/share" />
 
+    <ImageView
+        android:id="@+id/fullscreen_image_view"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/share_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/user_image_view"
+        app:srcCompat="@drawable/ic_baseline_fullscreen_24"
+        android:contentDescription="@string/full_screen_button" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

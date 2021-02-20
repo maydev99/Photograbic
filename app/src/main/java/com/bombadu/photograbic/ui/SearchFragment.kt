@@ -6,17 +6,16 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bombadu.photograbic.R
 import com.bombadu.photograbic.databinding.FragmentSearchBinding
 import com.bombadu.photograbic.network.RetrofitInstance
-import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.HttpException
 import java.io.IOException
@@ -65,6 +64,7 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.search_recycler_view)
         //val imageSearchET = view.findViewById<TextInputEditText>(R.id.image_search_edit_text)
+
         setHasOptionsMenu(true)
         setupRecyclerView()
         loadSearchQuery()
@@ -83,7 +83,6 @@ class SearchFragment : Fragment() {
     }
 
     private fun makeSearchQuery(query: String) {
-        println("Query: $query")
         lifecycleScope.launchWhenCreated {
             binding.progressBar.isVisible = true
             val response = try {
@@ -99,7 +98,6 @@ class SearchFragment : Fragment() {
             }
 
             if (response.isSuccessful && response.body() != null) {
-                //Log.i("RESPONSE", response.body().toString())
                 imageAdapter.images = response.body()!!.hits
                 saveSearchQuery(query)
             } else {

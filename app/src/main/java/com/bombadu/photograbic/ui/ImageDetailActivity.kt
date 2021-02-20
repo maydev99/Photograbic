@@ -51,25 +51,23 @@ class ImageDetailActivity : AppCompatActivity() {
             intent.type = "text/plain"
             startActivity(intent)
         }
+
+        binding.fullscreenImageView.setOnClickListener {
+            val intent = Intent(this, FullScreenActivity::class.java)
+            val bundle = Bundle()
+            bundle.putString("image_url", largeImageUrl)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
     }
 
-    private fun deleteFromLocalDB() {
-        val newEntry = LocalData(userImage, largeImageUrl, pageUrl, userName, false)
-        viewModel.deleteImageItem(newEntry)
-    }
 
     private fun saveToLocalDB() {
         val newEntry = LocalData(userImage, largeImageUrl, pageUrl, userName, false)
         viewModel.insertImageDataIntoDB(newEntry)
     }
 
-    /**
-     *  bundle.putString("largeImage", item.largeImageUrl)
-    bundle.putString("webImage", item.webImageUrl)
-    bundle.putString("userImage", item.userUrl)
-    bundle.putString("username", item.username)
-    bundle.putBoolean("isFavorite", item.isFavorite)
-     */
+
 
     private fun myBundle() {
         val bundle = intent.extras

@@ -1,0 +1,17 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory
+        app:allowDividerBelow="true"
+        app:icon="@drawable/ic_baseline_image_search_24"
+        app:title="Images">
+
+        <SwitchPreferenceCompat
+            app:key="large_images"
+            app:summaryOff="Small Images Only"
+            app:summaryOn="Large Images Allowed"
+            app:title="Allow Large Images in Search?" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

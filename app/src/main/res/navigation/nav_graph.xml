@@ -16,5 +16,13 @@
     <fragment
         android:id="@+id/favoritesFragment2"
         android:name="com.bombadu.photograbic.ui.FavoritesFragment"
-        android:label="FavoritesFragment" />
+        android:label="FavoritesFragment" >
+        <action
+            android:id="@+id/action_favoritesFragment2_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.bombadu.photograbic.ui.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

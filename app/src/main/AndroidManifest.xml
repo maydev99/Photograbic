@@ -12,7 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Photograbic">
-        <activity android:name=".ui.ImageDetailActivity"></activity>
+        <activity android:name=".ui.FullScreenActivity"></activity>
+        <activity android:name=".ui.ImageDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity"/>
+
+        </activity>
         <activity
             android:name=".ui.MainActivity"
             android:windowSoftInputMode="adjustNothing">
