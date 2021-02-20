@@ -1,8 +1,10 @@
-package com.bombadu.photograbic
+package com.bombadu.photograbic.di
 
 import android.content.Context
 import androidx.room.Room
-import com.bombadu.photograbic.Constants.DATABASE_NAME
+import com.bombadu.photograbic.util.Constants.DATABASE_NAME
+import com.bombadu.photograbic.repository.DefaultImageRepository
+import com.bombadu.photograbic.repository.ImageRepository
 import com.bombadu.photograbic.local.LocalDao
 import com.bombadu.photograbic.local.LocalDatabase
 import dagger.Module

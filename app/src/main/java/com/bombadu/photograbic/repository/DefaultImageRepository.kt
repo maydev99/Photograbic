@@ -1,4 +1,4 @@
-package com.bombadu.photograbic
+package com.bombadu.photograbic.repository
 
 import androidx.lifecycle.LiveData
 import com.bombadu.photograbic.local.LocalDao

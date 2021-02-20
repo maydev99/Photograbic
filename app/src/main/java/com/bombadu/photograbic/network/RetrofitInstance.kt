@@ -1,4 +1,4 @@
-package com.bombadu.photograbic
+package com.bombadu.photograbic.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

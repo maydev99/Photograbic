@@ -1,4 +1,4 @@
-package com.bombadu.photograbic
+package com.bombadu.photograbic.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,8 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil.*
 import androidx.recyclerview.widget.RecyclerView
+import com.bombadu.photograbic.network.ImageResponse
+import com.bombadu.photograbic.R
 import com.squareup.picasso.Picasso
 
 class ImageSearchAdapter : RecyclerView.Adapter<ImageSearchAdapter.ImageViewHolder>() {
@@ -52,8 +54,7 @@ class ImageSearchAdapter : RecyclerView.Adapter<ImageSearchAdapter.ImageViewHold
             println(images)
             val itemImageView = findViewById<ImageView>(R.id.item_image_view)
             val item = images[position]
-            println("HEIGHT: ${item.previewURL}")
-            Picasso.get().load(item.previewURL).into(itemImageView)
+            Picasso.get().load(item.largeImageURL).into(itemImageView)
 
             setOnClickListener {
                 onItemClickListener?.let { click ->

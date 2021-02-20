@@ -7,4 +7,9 @@
     <string name="search_for_image">search for image</string>
     <string name="image">Image</string>
     <string name="missing_user_image">https://lh3.googleusercontent.com/proxy/xJecLjcsU1-aRB01MsKBmlJpXiWRBNoJTt6rM3YJQhSE0fMuVRvE905Rooi1Ejr51o-wQIPIBdODywK_b4VVdOBacPs5w1k</string>
+    <string name="share">Share</string>
+    <string name="web">Web</string>
+    <string name="save_to_favorites">Save to Favorites</string>
+    <string name="user_image">User Image</string>
+
 </resources>

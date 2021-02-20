@@ -3,20 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/searchFragment">
-
+    android:label="sea"
+    app:startDestination="@id/searchFragment2">
     <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.bombadu.photograbic.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
+        android:id="@+id/searchFragment2"
+        android:name="com.bombadu.photograbic.ui.SearchFragment"
+        android:label="SearchFragment">
         <action
-            android:id="@+id/action_searchFragment_to_favoritesFragment2"
-            app:destination="@id/favoritesFragment" />
+            android:id="@+id/action_searchFragment2_to_favoritesFragment2"
+            app:destination="@id/favoritesFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/favoritesFragment"
-        android:name="com.bombadu.photograbic.FavoritesFragment"
-        android:label="fragment_favorites"
-        tools:layout="@layout/fragment_favorites" />
+        android:id="@+id/favoritesFragment2"
+        android:name="com.bombadu.photograbic.ui.FavoritesFragment"
+        android:label="FavoritesFragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.bombadu.photograbic
+package com.bombadu.photograbic.network
 
 import com.google.gson.annotations.SerializedName
 

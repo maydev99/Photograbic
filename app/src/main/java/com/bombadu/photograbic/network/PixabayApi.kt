@@ -1,5 +1,6 @@
-package com.bombadu.photograbic
+package com.bombadu.photograbic.network
 
+import com.bombadu.photograbic.BuildConfig
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

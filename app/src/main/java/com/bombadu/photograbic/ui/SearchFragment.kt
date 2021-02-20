@@ -1,22 +1,23 @@
-package com.bombadu.photograbic
+package com.bombadu.photograbic.ui
 
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.provider.Settings.Global.putString
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.inputmethod.EditorInfo
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bombadu.photograbic.R
 import com.bombadu.photograbic.databinding.FragmentSearchBinding
+import com.bombadu.photograbic.network.RetrofitInstance
 import com.google.android.material.textfield.TextInputEditText
+import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -32,6 +33,7 @@ private const val ARG_PARAM2 = "param2"
  */
 const val TAG = "MainActivity"
 
+@AndroidEntryPoint
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var imageAdapter: ImageSearchAdapter
@@ -62,23 +64,11 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.search_recycler_view)
-        val imageSearchET = view.findViewById<TextInputEditText>(R.id.image_search_edit_text)
+        //val imageSearchET = view.findViewById<TextInputEditText>(R.id.image_search_edit_text)
+        setHasOptionsMenu(true)
         setupRecyclerView()
         loadSearchQuery()
 
-
-        view.findViewById<TextInputEditText>(R.id.image_search_edit_text).setOnEditorActionListener { _, actionId, _ ->
-            return@setOnEditorActionListener when (actionId) {
-                EditorInfo.IME_ACTION_SEARCH -> {
-                    val query = imageSearchET.text.toString()
-                    makeSearchQuery(query)
-
-                    true
-                }
-
-                else -> false
-            }
-        }
 
         imageAdapter.setOnItemClickListener {
             val bundle = Bundle()
@@ -160,6 +150,29 @@ class SearchFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.search_menu, menu)
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object  : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    makeSearchQuery(query)
+                    searchView.clearFocus()
+                }
+
+                return true
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                return true
+            }
+
+        })
     }
 
 
