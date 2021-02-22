@@ -1,8 +1,7 @@
 package com.bombadu.photograbic.ui
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bombadu.photograbic.R
 import com.jsibbold.zoomage.ZoomageView
 import com.squareup.picasso.Picasso

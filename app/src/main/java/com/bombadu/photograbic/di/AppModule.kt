@@ -7,11 +7,15 @@ import com.bombadu.photograbic.repository.DefaultImageRepository
 import com.bombadu.photograbic.repository.ImageRepository
 import com.bombadu.photograbic.local.LocalDao
 import com.bombadu.photograbic.local.LocalDatabase
+import com.bombadu.photograbic.network.PixabayApi
+import com.bombadu.photograbic.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -22,7 +26,8 @@ object AppModule {
     @Provides
     fun provideDefaultImagePostRepository(
         dao: LocalDao,
-    ) = DefaultImageRepository(dao) as ImageRepository
+        api: PixabayApi
+    ) = DefaultImageRepository(dao, api) as ImageRepository
 
     @Singleton
     @Provides
@@ -35,4 +40,16 @@ object AppModule {
     fun provideLocalDao(
         database: LocalDatabase
     ) = database.localDao()
+
+    @Singleton
+    @Provides
+    fun providePixayApi(): PixabayApi {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(PixabayApi::class.java)
+    }
+
 }
+

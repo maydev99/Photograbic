@@ -15,8 +15,7 @@ import com.squareup.picasso.Picasso
 class FavoritesAdapter(
     val mItemClickListener: ItemClickListener,
     private val interaction: Interaction? = null
-) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
     interface ItemClickListener {
