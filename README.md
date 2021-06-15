@@ -1,3 +1,3 @@
 # Photograbic
 
-Grab photos from the web. Comment and save
+Grab **photos** from the web. Comment and save
